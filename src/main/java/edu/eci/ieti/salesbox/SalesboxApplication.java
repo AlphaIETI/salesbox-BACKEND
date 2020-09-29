@@ -1,4 +1,4 @@
-package edu.eci.ieti.salesbox.main;
+package edu.eci.ieti.salesbox;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
