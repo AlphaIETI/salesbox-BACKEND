@@ -6,14 +6,14 @@ public class Cliente {
     private String nombre;
     private String apellido;
     private String correo;
-    private String contraseña;
+    private String contrase;
 
-    public Cliente(int id, String nombre, String apellido, String correo, String contraseña) {
+    public Cliente(int id, String nombre, String apellido, String correo, String contrase) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
-        this.contraseña = contraseña;
+        this.contrase = contrase;
     }
 
 
@@ -33,8 +33,8 @@ public class Cliente {
         return correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrase() {
+        return contrase;
     }
 
     public void setId(int id) {
@@ -53,7 +53,7 @@ public class Cliente {
         this.correo = correo;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContraseña(String contrase) {
+        this.contrase = contrase;
     }
 }
