@@ -19,12 +19,24 @@ public interface ProductService {
     /**
      * Metodo para obtener productos por su marca
      */
-    public List<Product> getProductByBrand(String brand);
+    public List<Product> getProductsByBrand(String brand);
+
+    /**
+     * Metodo para crear un producto
+     */
+    public List<Product> createProduct(Product product);
+
+    /**
+     * Metodo para remover un producto por su id
+     */
+    public void removeProductById(int id);
 
     /**
      * Metodo para modificar un producto
      */
-    public void updateProduct(String Product);
+    public void updateProduct(Product product, int id);
+
+
 
 
 
