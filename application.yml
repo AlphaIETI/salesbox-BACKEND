@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://SalesBoxUser:SalesBoxUser@salesboxcluster.zk5qw.mongodb.net/test?retryWrites=true&w=majority
