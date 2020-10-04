@@ -1,11 +1,15 @@
 package edu.eci.ieti.salesbox.models;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.ArrayList;
 
+@Document
 public class Promotion {
 
     //Attributes
-
+    @Id
     private String id;
     private String brand;
     private String endDate;
@@ -13,16 +17,6 @@ public class Promotion {
     private int discount;
     private String image;
     private String description;
-
-    public Promotion(String id, String brand, String endDate, int discount, String image, String description) {
-        this.id = id;
-        this.brand = brand;
-        this.endDate = endDate;
-        //this.products = products;
-        this.discount = discount;
-        this.image = image;
-        this.description = description;
-    }
 
     //Methods
 
