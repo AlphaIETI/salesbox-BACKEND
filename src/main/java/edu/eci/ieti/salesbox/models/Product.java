@@ -6,14 +6,14 @@ import java.util.List;
 
 public class Product {
 
-    private int id;
+    private String id;
     private String brand;
     private String description;
     private String color;
     private int price;
-    private List<String> size;
+    private ArrayList<String> size;
 
-    public Product(int id, String brand, String description, String color, int price, List<String> size) {
+    public Product(String id, String brand, String description, String color, int price, ArrayList<String> size) {
         this.id = id;
         this.brand = brand;
         this.description = description;
@@ -22,11 +22,11 @@ public class Product {
         this.size = size;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -62,11 +62,11 @@ public class Product {
         this.price = price;
     }
 
-    public List<String> getSize() {
+    public ArrayList<String> getSize() {
         return size;
     }
 
-    public void setSize(List<String> size) {
+    public void setSize(ArrayList<String> size) {
         this.size = size;
     }
 }

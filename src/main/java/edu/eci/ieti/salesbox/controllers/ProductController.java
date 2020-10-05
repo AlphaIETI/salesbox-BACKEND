@@ -19,7 +19,7 @@ public class ProductController {
     }
 
     @GetMapping("/product/{id}")
-    public Product getProductById(@PathVariable int id){
+    public Product getProductById(@PathVariable String id){
         return psi.getProductById(id);
     }
 
@@ -29,19 +29,18 @@ public class ProductController {
     }
 
     @PutMapping("/product/{product,id}")
-    public void getProductsByBrand(@PathVariable Product product, int id){
+    public void changeProductById(@PathVariable Product product, String id){
         psi.updateProduct(product, id);
     }
 
-    @PostMapping("/updateProduct/{product}")
-    public List<Product> createProduct(@PathVariable Product product){
+    @PostMapping("/addProduct/")
+    public List<Product> createProduct(@RequestBody Product product){
         return psi.createProduct(product);
     }
 
-    @DeleteMapping("/removeProducts/{id}")
-    public void removeProductById(@PathVariable int id){
+    @DeleteMapping("/removeProduct/{id}")
+    public void removeProductById(@PathVariable String id){
         psi.removeProductById(id);
     }
-
 
 }
