@@ -1,9 +1,12 @@
 package edu.eci.ieti.salesbox.services.impl;
 
 import edu.eci.ieti.salesbox.models.Product;
+import edu.eci.ieti.salesbox.models.Promotion;
 import edu.eci.ieti.salesbox.services.ProductService;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,13 +14,13 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    List<String> NumSizes = Arrays.asList("XS","S","M","L");
-    List<String> LetterSizes = Arrays.asList("XS","S","M","L");
-    List<Product> products =  Arrays.asList(
-            new Product(1, "Nike", "Guayos Mercurial para futbol", "Azul", 250000, NumSizes),
-            new Product(2, "Adidas", "Camisa super deportiva", "Negro", 50000, LetterSizes),
-            new Product(3, "H&M", "Pantaloneta de Tennis", "Blanco", 170000, LetterSizes),
-            new Product(4, "Nike", "Camiseta para Golf", "Roja", 200000, LetterSizes)
+    ArrayList<String> NumSizes = new ArrayList<>(Arrays.asList("36","37","38","39"));
+    ArrayList<String> LetterSizes = new ArrayList<>(Arrays.asList("XS","S","M","L"));
+    ArrayList<Product> products =  new ArrayList<>(Arrays.asList(
+            new Product("1", "Nike", "Guayos Mercurial para futbol", "Azul", 250000, NumSizes),
+            new Product("2", "Adidas", "Camisa super deportiva", "Negro", 50000, LetterSizes),
+            new Product("3", "H&M", "Pantaloneta de Tennis", "Blanco", 170000, LetterSizes),
+            new Product("4", "Nike", "Camiseta para Golf", "Roja", 200000, LetterSizes))
     );
 
 
@@ -27,10 +30,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductById(int id) {
+    public Product getProductById(String id) {
         Product newProduct = null;
         for(int i=0; i<products.size(); i++){
-            if (products.get(i).getId()==id){
+            if (products.get(i).getId().equals(id)){
                 newProduct =  products.get(i);
             }
         }
@@ -38,10 +41,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProductsByBrand(String brand) {
-        List<Product> newProducts = null;
+    public ArrayList<Product> getProductsByBrand(String brand) {
+        ArrayList<Product> newProducts = new ArrayList<>();
         for(int i=0; i<products.size(); i++){
-            if (products.get(i).getBrand()==brand){
+            if (products.get(i).getBrand().equals(brand)){
                 newProducts.add(products.get(i));
             }
         }
@@ -49,24 +52,29 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void updateProduct(Product product, int id) {
-
+    public void updateProduct(Product product, String id) {
     }
 
     @Override
-    public List<Product> createProduct(Product product) {
+    public ArrayList<Product> createProduct(Product product) {
         products.add(product);
         return products;
     }
 
     @Override
-    public void removeProductById(int id) {
+    public void removeProductById(String id) {
+        int idToDelete = -1;
 
-        for(int i=0; i<products.size(); i++){
-            if (products.get(i).getId()==id){
-                products.remove(i);
+        for(Product pr: products){
+            if(pr.getId().equals(id)){
+                idToDelete = products.indexOf(pr);
             }
         }
+
+        if(idToDelete>=0){
+            products.remove(idToDelete);
+        }
+
     }
 }
 

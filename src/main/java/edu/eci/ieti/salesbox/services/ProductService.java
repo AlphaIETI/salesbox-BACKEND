@@ -14,7 +14,7 @@ public interface ProductService {
     /**
      * Metodo para obtener un producto por su id
      */
-    public Product getProductById(int id);
+    public Product getProductById(String id);
 
     /**
      * Metodo para obtener productos por su marca
@@ -29,12 +29,12 @@ public interface ProductService {
     /**
      * Metodo para remover un producto por su id
      */
-    public void removeProductById(int id);
+    public void removeProductById(String id);
 
     /**
      * Metodo para modificar un producto
      */
-    public void updateProduct(Product product, int id);
+    public void updateProduct(Product product, String id);
 
 
 
