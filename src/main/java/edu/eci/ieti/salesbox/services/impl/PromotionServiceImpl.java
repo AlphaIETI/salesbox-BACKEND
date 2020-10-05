@@ -1,27 +1,21 @@
 package edu.eci.ieti.salesbox.services.impl;
 
 import edu.eci.ieti.salesbox.models.Promotion;
+import edu.eci.ieti.salesbox.persistence.PromotionRepository;
 import edu.eci.ieti.salesbox.services.PromotionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PromotionServiceImpl implements PromotionService {
 
-    // PromotionArrayTest
-    private static ArrayList<Promotion> promotionTests = new ArrayList<>(Arrays.asList(new Promotion("1","Nike","fechaFin",30,"urlImg1","descrip1"),
-                                                                            new Promotion("2","Adidas","fechaFin",35,"urlImg2","descrip2"),
-                                                                            new Promotion("3","Nike","fechaFin",25,"urlImg3","descrip3"),
-                                                                            new Promotion("4","Adidas","fechaFin",20,"urlImg4","descrip4"),
-                                                                            new Promotion("5","Nike","fechaFin",35,"urlImg5","descrip5"),
-                                                                            new Promotion("6","Adidas","fechaFin",45,"urlImg6","descrip6"),
-                                                                            new Promotion("7","H&M","fechaFin",40,"urlImg7","descrip7"),
-                                                                            new Promotion("8","Nike","fechaFin",65,"urlImg8","descrip8"),
-                                                                            new Promotion("9","H&M","fechaFin",70,"urlImg9","descrip9"),
-                                                                            new Promotion("10","H&M","fechaFin",60,"urlImg10","descrip10")));
+    @Autowired
+    private PromotionRepository promotionRepository;
 
     /**
      * Method that allows to consult all the available promotions.
@@ -30,7 +24,7 @@ public class PromotionServiceImpl implements PromotionService {
      */
     @Override
     public List<Promotion> getAllPromotions() {
-        return promotionTests;
+        return promotionRepository.findAll();
     }
 
     /**
@@ -42,7 +36,7 @@ public class PromotionServiceImpl implements PromotionService {
     @Override
     public List<Promotion> getAllPromotionsByBrand(String brand) {
         ArrayList<Promotion> ans = new ArrayList<>();
-        for(Promotion pr: promotionTests){
+        for(Promotion pr: promotionRepository.findAll()){
             if(pr.getBrand().equals(brand)){
                 ans.add(pr);
             }
@@ -58,13 +52,8 @@ public class PromotionServiceImpl implements PromotionService {
      */
     @Override
     public Promotion getPromotionsById(String id) {
-        Promotion ans = null;
-        for(Promotion pr: promotionTests){
-            if(pr.getId().equals(id)){
-                ans = pr;
-            }
-        }
-        return ans;
+        Optional<Promotion> optionalPromotion = promotionRepository.findById(id);
+        return optionalPromotion.get();
     }
 
     /**
@@ -75,8 +64,7 @@ public class PromotionServiceImpl implements PromotionService {
      */
     @Override
     public Promotion createPromotion(Promotion newPromotion) {
-        promotionTests.add(newPromotion);
-        return newPromotion;
+        return promotionRepository.save(newPromotion);
     }
 
     /**
@@ -88,18 +76,7 @@ public class PromotionServiceImpl implements PromotionService {
      */
     @Override
     public Promotion updatePromotionById(Promotion updatePromotion, String id) {
-        Promotion updatePr = null;
-        for(Promotion pr: promotionTests){
-            if(pr.getId().equals(id)){
-                pr.setBrand(updatePromotion.getBrand());
-                pr.setDescription(updatePromotion.getDescription());
-                pr.setDiscount(updatePromotion.getDiscount());
-                pr.setEndDate(updatePromotion.getEndDate());
-                pr.setImage(updatePromotion.getImage());
-                updatePr = pr;
-            }
-        }
-        return updatePr;
+        return promotionRepository.save(updatePromotion);
     }
 
     /**
@@ -109,14 +86,6 @@ public class PromotionServiceImpl implements PromotionService {
      */
     @Override
     public void removePromotionById(String id) {
-        int position = -1;
-        for(Promotion pr: promotionTests){
-            if(pr.getId().equals(id)){
-                position = promotionTests.indexOf(pr);
-            }
-        }
-        if(position>=0){
-            promotionTests.remove(position);
-        }
+        promotionRepository.delete(promotionRepository.findById(id).get());
     }
 }
