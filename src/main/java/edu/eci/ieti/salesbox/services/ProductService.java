@@ -24,7 +24,7 @@ public interface ProductService {
     /**
      * Metodo para crear un producto
      */
-    public List<Product> createProduct(Product product);
+    public void createProduct(Product product);
 
     /**
      * Metodo para remover un producto por su id

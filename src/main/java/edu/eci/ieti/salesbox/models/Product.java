@@ -1,11 +1,15 @@
 package edu.eci.ieti.salesbox.models;
 
-import java.lang.reflect.Array;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.ArrayList;
-import java.util.List;
 
+
+
+@Document
 public class Product {
 
+    @Id
     private String id;
     private String brand;
     private String description;
