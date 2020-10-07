@@ -33,9 +33,9 @@ public class ProductController {
         psi.updateProduct(product, id);
     }
 
-    @PostMapping("/addProduct/")
-    public List<Product> createProduct(@RequestBody Product product){
-        return psi.createProduct(product);
+    @PostMapping("/addProduct")
+    public void createProduct(@RequestBody Product product){
+        psi.createProduct(product);
     }
 
     @DeleteMapping("/removeProduct/{id}")

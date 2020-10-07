@@ -12,3 +12,5 @@ public interface EntityRepository extends MongoRepository<Entity,String> {
     Optional<Entity> findByEmail(String email);
 
 }
+
+
