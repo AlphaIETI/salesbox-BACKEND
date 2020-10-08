@@ -26,7 +26,7 @@ public class ClientController {
     }
 
     @GetMapping("/clients/mail/{mail}")
-    public Client getClientsById(@PathVariable("mail") String mail) {
+    public Client getClientsByMail(@PathVariable("mail") String mail) {
         return clientServices.getClienteByMail(mail);
     }
 
