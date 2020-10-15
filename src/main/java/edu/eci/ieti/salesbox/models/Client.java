@@ -1,7 +1,12 @@
 package edu.eci.ieti.salesbox.models;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Client {
 
+    @Id
     private int id;
     private String name;
     private String lastname;

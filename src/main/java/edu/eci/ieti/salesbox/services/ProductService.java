@@ -36,8 +36,4 @@ public interface ProductService {
      */
     public void updateProduct(Product product, String id);
 
-
-
-
-
 }

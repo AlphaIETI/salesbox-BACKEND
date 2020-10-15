@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api")
 public class ClientController {
 
     @Autowired
@@ -32,12 +31,15 @@ public class ClientController {
 
     @PutMapping("/clients/mail/{mail}")
     public Client updateClientsByMail(@RequestBody Client newClient, @PathVariable("mail") String mail) {
-        // JSON {"id":"100","name":"juliana","lastname":"garzon","mail":juliana@hotmail.com,"password":"2222"}
         return clientServices.updateClientByMail(newClient,mail);
     }
 
     @DeleteMapping("/clients/mail/{mail}")
     public boolean deleteClientByMail(@PathVariable("mail") String mail){
         return clientServices.deleteClientByMail(mail);
+    }
+    @DeleteMapping("/clients/id/{id}")
+    public void deleteClientById(@PathVariable("id") int id){
+        clientServices.deleteClientById(id);
     }
 }

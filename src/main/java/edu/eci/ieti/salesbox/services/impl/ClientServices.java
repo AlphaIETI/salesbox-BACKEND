@@ -1,11 +1,17 @@
 package edu.eci.ieti.salesbox.services.impl;
 
+import edu.eci.ieti.salesbox.models.Product;
+import edu.eci.ieti.salesbox.persistence.ClientRepository;
 import edu.eci.ieti.salesbox.services.Services;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.eci.ieti.salesbox.models.Client;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+
+import edu.eci.ieti.salesbox.persistence.ClientRepository;
 
 @Service
 public class ClientServices {
@@ -15,6 +21,8 @@ public class ClientServices {
             new Client(2,"David","Diaz","David@hotmail.com","0000"),
             new Client(3,"Juan","Navarro","Juan@hotmail.com","1111")));
 
+    @Autowired
+    private ClientRepository clientRepository;
     /**
      * Method allowing to consult a client by its id.
      *
@@ -22,13 +30,9 @@ public class ClientServices {
      * @return  Returns the client corresponding to the id.
      */
     public Client getClienteById(int id){
-        Client answ = null;
-        for (Client cli:clientsTest){
-            if (cli.getId() == id){
-                answ = cli;
-            }
-        }
-        return answ;
+        Optional<Client> OC = clientRepository.findById(id);
+        return OC.get();
+
     }
 
     /**
@@ -40,7 +44,7 @@ public class ClientServices {
     public Client getClienteByMail(String mail){
         Client answ = null;
         for (Client cli:clientsTest){
-            if (cli.getmail() == mail){
+            if (cli.getmail().equals(mail)){
                 answ = cli;
             }
         }
@@ -53,7 +57,7 @@ public class ClientServices {
      * @return Returns all clients
      */
     public List<Client> getAllCients(){
-        return clientsTest;
+        return clientRepository.findAll();
     }
 
     /**
@@ -81,7 +85,7 @@ public class ClientServices {
     public Client updateClientByMail(Client newClient,String mail){
         Client answ = null;
         for (Client cli:clientsTest){
-            if (cli.getmail() == mail){
+            if (cli.getmail().equals(mail)){
                 cli.setname(newClient.getname());
                 cli.setlastname(newClient.getlastname());
                 cli.setmail(newClient.getmail());
@@ -111,5 +115,10 @@ public class ClientServices {
             flag = true;
         }
         return flag;
+    }
+
+    public void deleteClientById(int id){
+        Optional<Client> OC = clientRepository.findById(id);
+        clientRepository.delete(OC.get());
     }
 }
