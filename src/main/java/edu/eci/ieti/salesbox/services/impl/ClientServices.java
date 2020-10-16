@@ -43,7 +43,7 @@ public class ClientServices {
      */
     public Client getClienteByMail(String mail){
         Client answ = null;
-        for (Client cli:clientsTest){
+        for (Client cli:clientRepository.findAll()){
             if (cli.getmail().equals(mail)){
                 answ = cli;
             }
@@ -64,15 +64,10 @@ public class ClientServices {
      * Method used to insert a new client.
      *
      * @param cli This is the object that represents the new client
-     * @return Return true or false if the new client is inserted.
+     * @return Return Client if the new client is inserted.
      */
-    public boolean insertClient(Client cli){
-        boolean flag = false;
-        if (cli != null){
-            clientsTest.add(cli);
-            flag = true;
-        }
-        return flag;
+    public Client insertClient(Client cli){
+        return clientRepository.save(cli);
     }
 
     /**
@@ -84,7 +79,7 @@ public class ClientServices {
      */
     public Client updateClientByMail(Client newClient,String mail){
         Client answ = null;
-        for (Client cli:clientsTest){
+        for (Client cli:clientRepository.findAll()){
             if (cli.getmail().equals(mail)){
                 cli.setname(newClient.getname());
                 cli.setlastname(newClient.getlastname());
@@ -105,14 +100,10 @@ public class ClientServices {
     public boolean deleteClientByMail(String mail){
         boolean flag = false;
         int position = -1;
-        for (Client cli:clientsTest) {
-            if (cli.getmail() == mail) {
-                position = clientsTest.indexOf(cli);
+        for (Client cli:clientRepository.findAll()) {
+            if (cli.getmail().equals(mail)) {
+                clientRepository.delete(cli);
             }
-        }
-        if (position >=0){
-            clientsTest.remove(position);
-            flag = true;
         }
         return flag;
     }
