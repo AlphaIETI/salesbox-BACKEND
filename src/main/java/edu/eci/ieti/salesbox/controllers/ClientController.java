@@ -42,4 +42,8 @@ public class ClientController {
     public void deleteClientById(@PathVariable("id") int id){
         clientServices.deleteClientById(id);
     }
+    @PostMapping("/addClient")
+    public Client insertClient(@RequestBody Client newClient ){
+        return clientServices.insertClient(newClient);
+    }
 }
