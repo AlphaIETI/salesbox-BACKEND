@@ -86,6 +86,8 @@ public class ClientServices {
                 cli.setmail(newClient.getmail());
                 cli.setpassword(newClient.getpassword());
                 answ = cli;
+                clientRepository.delete(answ);
+                clientRepository.save(answ);
             }
         }
         return answ;
