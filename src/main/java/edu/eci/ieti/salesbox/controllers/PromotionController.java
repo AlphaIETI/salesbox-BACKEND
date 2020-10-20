@@ -11,8 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api")
-//@CrossOrigin(origins = "http://localhost:3000")
-@CrossOrigin(origins = "https://salesbox-alpha.herokuapp.com")
+@CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000"})
 public class PromotionController {
 
     @Autowired
