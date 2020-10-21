@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000"})
 public class ClientController {
 
     @Autowired
