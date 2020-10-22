@@ -14,9 +14,7 @@ import java.util.Optional;
 @Service
 public class EntityServiceImpl implements EntityService {
 
-   /*List<Entity> entities = new ArrayList<Entity>(Arrays.asList(new Entity("1","JGD","123","abc@gmail.com","1234","123","Bogota","cra12#1-2"),
-            new Entity("2","DDD","345","ddd@gmail.com","12344","998123","Cali","calle 6#1-2"),
-            new Entity("3","ADD","678","add@gmail.com","12341","127873","Bucaramanga","av 127#1-2")));*/
+
 
   @Autowired
   private EntityRepository er;
