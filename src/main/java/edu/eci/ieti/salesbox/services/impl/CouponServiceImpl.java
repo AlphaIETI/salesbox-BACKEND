@@ -33,7 +33,7 @@ public class CouponServiceImpl implements CouponService{
        return couponRepository.save(newCoupon);
     }
 
-    public Coupon updateCoupon(Coupon newCoupon) {
+    public Coupon updateCoupon(Coupon newCoupon,String id) {
         return  couponRepository.save(newCoupon);
     }
 

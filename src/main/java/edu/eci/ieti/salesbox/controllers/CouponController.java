@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api")
+@CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000"})
 public class CouponController {
 
     @Autowired
@@ -29,12 +30,11 @@ public class CouponController {
         return couponService.createCoupon(newCoupon);
     }
 
-    /*
+    
     @PutMapping("/coupons/id/{id}")
     public Coupon updateCoupon(@RequestBody Coupon updateCoupon, @PathVariable("id") String id) {
         return couponService.updateCoupon(updateCoupon,id);
     }
-    */
 
     @DeleteMapping("/coupons/id/{id}")
     public void removeCoupon(@PathVariable String id) {
