@@ -16,11 +16,6 @@ import edu.eci.ieti.salesbox.persistence.ClientRepository;
 @Service
 public class ClientServices {
 
-    // ClientsArrayTest
-    private static ArrayList<Client> clientsTest = new ArrayList<> (Arrays.asList(new Client(1,"Sergio","Nuñez","Sergio@hotmail.com","1234"),
-            new Client(2,"David","Diaz","David@hotmail.com","0000"),
-            new Client(3,"Juan","Navarro","Juan@hotmail.com","1111")));
-
     @Autowired
     private ClientRepository clientRepository;
     /**
@@ -44,7 +39,7 @@ public class ClientServices {
     public Client getClienteByMail(String mail){
         Client answ = null;
         for (Client cli:clientRepository.findAll()){
-            if (cli.getmail().equals(mail)){
+            if (cli.getMail().equals(mail)){
                 answ = cli;
             }
         }
@@ -80,11 +75,14 @@ public class ClientServices {
     public Client updateClientByMail(Client newClient,String mail){
         Client answ = null;
         for (Client cli:clientRepository.findAll()){
-            if (cli.getmail().equals(mail)){
-                cli.setname(newClient.getname());
-                cli.setlastname(newClient.getlastname());
-                cli.setmail(newClient.getmail());
-                cli.setpassword(newClient.getpassword());
+            if (cli.getMail().equals(mail)){
+                cli.setName(newClient.getName());
+                cli.setLastname(newClient.getLastname());
+                cli.setMail(newClient.getMail());
+                cli.setPassword(newClient.getPassword());
+                cli.setCoupons(newClient.getCoupons());
+                cli.setPhon(newClient.getPhon());
+                cli.setAdress(newClient.getAdress());
                 answ = cli;
                 clientRepository.delete(answ);
                 clientRepository.save(answ);
@@ -103,7 +101,7 @@ public class ClientServices {
         boolean flag = false;
         int position = -1;
         for (Client cli:clientRepository.findAll()) {
-            if (cli.getmail().equals(mail)) {
+            if (cli.getMail().equals(mail)) {
                 clientRepository.delete(cli);
             }
         }
