@@ -10,6 +10,7 @@ public interface EntityRepository extends MongoRepository<Entity,String> {
 
     Optional<Entity> findByName(String name);
     Optional<Entity> findByEmail(String email);
+    Optional<Entity> findByEmailAndPassword(String email,String password);
 
 }
 

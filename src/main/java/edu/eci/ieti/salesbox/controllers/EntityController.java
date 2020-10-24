@@ -1,6 +1,7 @@
 package edu.eci.ieti.salesbox.controllers;
 
 
+import edu.eci.ieti.salesbox.exceptions.EntityException;
 import edu.eci.ieti.salesbox.models.Entity;
 import edu.eci.ieti.salesbox.services.EntityService;
 import edu.eci.ieti.salesbox.services.impl.EntityServiceImpl;
@@ -35,6 +36,10 @@ public class EntityController {
     }
 
 
+    @GetMapping("/entity/user/{email}/{password}")
+    Entity getByEmailAndPassword(@PathVariable String email, @PathVariable String password) throws EntityException {
+        return es.getByEmailAndPassword(email,password);
+    }
     @GetMapping("/entity/user/{email}")
     Entity getEntityByEmail(@PathVariable String email){
         return es.getEntityByEmail(email);

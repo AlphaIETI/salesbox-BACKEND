@@ -1,5 +1,6 @@
 package edu.eci.ieti.salesbox.services.impl;
 
+import edu.eci.ieti.salesbox.exceptions.EntityException;
 import edu.eci.ieti.salesbox.models.Entity;
 import edu.eci.ieti.salesbox.persistence.EntityRepository;
 import edu.eci.ieti.salesbox.services.EntityService;
@@ -49,6 +50,11 @@ public class EntityServiceImpl implements EntityService {
     @Override
     public Entity updateEntity(Entity newEntity) {
         return null;
+    }
+
+    @Override
+    public Entity getByEmailAndPassword(String email, String password) {
+        return er.findByEmailAndPassword(email,password).get();
     }
 
 
