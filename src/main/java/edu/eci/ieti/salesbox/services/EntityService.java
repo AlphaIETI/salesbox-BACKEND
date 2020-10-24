@@ -13,6 +13,7 @@ public interface EntityService {
     public Entity getEntityByEmail(String email) throws EntityException;
     public Entity createEntity(Entity newEntity) throws EntityException;
     public Entity updateEntity(Entity newEntity) throws EntityException;
+    public Entity getByEmailAndPassword(String email,String password) throws EntityException;
     public void removeEntity(String id) throws EntityException;
 
 
