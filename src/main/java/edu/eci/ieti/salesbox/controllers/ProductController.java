@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000"})
 public class ProductController {
+
 
     @Autowired
     ProductServiceImpl psi = new ProductServiceImpl();
@@ -18,27 +20,27 @@ public class ProductController {
         return psi.getAllProducts();
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/products/{id}")
     public Product getProductById(@PathVariable String id){
         return psi.getProductById(id);
     }
 
-    @GetMapping("/products/{brand}")
+    @GetMapping("/products/brand/{brand}")
     public List<Product> getProductsByBrand(@PathVariable String brand){
         return psi.getProductsByBrand(brand);
     }
 
-    @PutMapping("/product/{product,id}")
+    @PutMapping("/products/{product,id}")
     public void changeProductById(@PathVariable Product product, String id){
         psi.updateProduct(product, id);
     }
 
-    @PostMapping("/addProduct")
+    @PostMapping("/Products")
     public void createProduct(@RequestBody Product product){
         psi.createProduct(product);
     }
 
-    @DeleteMapping("/removeProduct/{id}")
+    @DeleteMapping("/Products/{id}")
     public void removeProductById(@PathVariable String id){
         psi.removeProductById(id);
     }

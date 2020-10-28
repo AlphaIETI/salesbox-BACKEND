@@ -15,14 +15,18 @@ public class Product {
     private String description;
     private String color;
     private int price;
+    private int discount;
+    private String image;
     private ArrayList<String> size;
 
-    public Product(String id, String brand, String description, String color, int price, ArrayList<String> size) {
+    public Product(String id, String brand, String description, String color, int price, int discount, String image, ArrayList<String> size) {
         this.id = id;
         this.brand = brand;
         this.description = description;
         this.color = color;
         this.price = price;
+        this.discount = discount;
+        this.image = image;
         this.size = size;
     }
 
@@ -72,5 +76,21 @@ public class Product {
 
     public void setSize(ArrayList<String> size) {
         this.size = size;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
