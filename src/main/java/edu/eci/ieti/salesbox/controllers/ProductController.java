@@ -39,14 +39,14 @@ public class ProductController {
         psi.updateProduct(product, id);
     }
 
-    @PostMapping("/Products")
+    @PostMapping("/products")
     public void createProduct(@RequestBody Product newProduct) throws ProductException{
         //psi.createProduct(product);
         ObjectId  newObjectIdProduct = new ObjectId(new Date());
         newProduct.setId( newObjectIdProduct.toHexString());
     }
 
-    @DeleteMapping("/Products/{id}")
+    @DeleteMapping("/products/{id}")
     public void removeProductById(@PathVariable String id) throws ProductException{
         psi.removeProductById(id);
     }
