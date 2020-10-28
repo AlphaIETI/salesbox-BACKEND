@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000"})
@@ -21,7 +22,7 @@ public class ClientController {
     }
 
     @GetMapping("/clients/id/{id}")
-    public Client getClientsById(@PathVariable("id") int id) {
+    public Client getClientsById(@PathVariable("id") String id) {
         return clientServices.getClienteById(id);
     }
 
@@ -40,11 +41,15 @@ public class ClientController {
         return clientServices.deleteClientByMail(mail);
     }
     @DeleteMapping("/clients/id/{id}")
-    public void deleteClientById(@PathVariable("id") int id){
+    public void deleteClientById(@PathVariable("id") String id){
         clientServices.deleteClientById(id);
     }
+
     @PostMapping("/addClient")
     public Client insertClient(@RequestBody Client newClient ){
+        UUID uuid=UUID.randomUUID();
+        newClient.setId(uuid.toString());
         return clientServices.insertClient(newClient);
     }
 }
+
