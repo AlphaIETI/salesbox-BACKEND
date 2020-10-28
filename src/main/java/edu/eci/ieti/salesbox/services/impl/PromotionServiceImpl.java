@@ -1,5 +1,6 @@
 package edu.eci.ieti.salesbox.services.impl;
 
+import edu.eci.ieti.salesbox.exceptions.PromotionException;
 import edu.eci.ieti.salesbox.models.Promotion;
 import edu.eci.ieti.salesbox.persistence.PromotionRepository;
 import edu.eci.ieti.salesbox.services.PromotionService;
@@ -51,9 +52,8 @@ public class PromotionServiceImpl implements PromotionService {
      * @return Returns the promotion corresponding to the id.
      */
     @Override
-    public Promotion getPromotionsById(String id) {
-        Optional<Promotion> optionalPromotion = promotionRepository.findById(id);
-        return optionalPromotion.get();
+    public Promotion getPromotionsById(String id) throws PromotionException {
+        return promotionRepository.findById(id).orElseThrow(() -> new PromotionException("The promotion with the ID:" + id + " does not exist."));
     }
 
     /**

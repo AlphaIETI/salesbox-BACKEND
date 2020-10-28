@@ -1,5 +1,6 @@
 package edu.eci.ieti.salesbox.controllers;
 
+import edu.eci.ieti.salesbox.exceptions.PromotionException;
 import edu.eci.ieti.salesbox.models.Promotion;
 import edu.eci.ieti.salesbox.services.impl.PromotionServiceImpl;
 import org.bson.types.ObjectId;
@@ -27,8 +28,8 @@ public class PromotionController {
         return promotionService.getAllPromotionsByBrand(brand);
     }
 
-    @GetMapping("/promotions/id/{id}")
-    public Promotion getPromotionsById(@PathVariable("id") String id) {
+    @GetMapping("/promotions/{id}")
+    public Promotion getPromotionsById(@PathVariable("id") String id) throws PromotionException {
         return promotionService.getPromotionsById(id);
     }
 
@@ -40,13 +41,13 @@ public class PromotionController {
         return promotionService.createPromotion(newPromotion);
     }
 
-    @PutMapping("/promotions/id/{id}")
+    @PutMapping("/promotions/{id}")
     public Promotion updatePromotionById(@RequestBody Promotion updatePromotion, @PathVariable("id") String id) {
         // JSON {"id":"","brand":"NafNaf","endDate":"fechaFinNueva","discount":25,"image":"urlImg100Nueva","description":"descrip100PUT"}
         return promotionService.updatePromotionById(updatePromotion,id);
     }
 
-    @DeleteMapping("/promotions/id/{id}")
+    @DeleteMapping("/promotions/{id}")
     public void removePromotionById(@PathVariable String id) {
         promotionService.removePromotionById(id);
     }
