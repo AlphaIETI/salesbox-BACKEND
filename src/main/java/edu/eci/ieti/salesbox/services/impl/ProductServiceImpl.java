@@ -5,7 +5,7 @@ import edu.eci.ieti.salesbox.persistence.ProductRepository;
 import edu.eci.ieti.salesbox.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import edu.eci.ieti.salesbox.exceptions.ProductException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
