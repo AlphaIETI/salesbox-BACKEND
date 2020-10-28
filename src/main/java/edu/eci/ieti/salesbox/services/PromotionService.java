@@ -1,5 +1,6 @@
 package edu.eci.ieti.salesbox.services;
 
+import edu.eci.ieti.salesbox.exceptions.PromotionException;
 import edu.eci.ieti.salesbox.models.Promotion;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public interface PromotionService {
      * @param id    This is the unique identifier of the promotion.
      * @return  Returns the promotion corresponding to the id.
      */
-    public Promotion getPromotionsById (String id);
+    public Promotion getPromotionsById (String id) throws PromotionException;
 
     /**
      * Method used to create a new promotion.
