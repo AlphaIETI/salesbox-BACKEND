@@ -1,5 +1,6 @@
 package edu.eci.ieti.salesbox.services.impl;
 
+import edu.eci.ieti.salesbox.exceptions.EntityException;
 import edu.eci.ieti.salesbox.models.Entity;
 import edu.eci.ieti.salesbox.persistence.EntityRepository;
 import edu.eci.ieti.salesbox.services.EntityService;
@@ -14,9 +15,7 @@ import java.util.Optional;
 @Service
 public class EntityServiceImpl implements EntityService {
 
-   /*List<Entity> entities = new ArrayList<Entity>(Arrays.asList(new Entity("1","JGD","123","abc@gmail.com","1234","123","Bogota","cra12#1-2"),
-            new Entity("2","DDD","345","ddd@gmail.com","12344","998123","Cali","calle 6#1-2"),
-            new Entity("3","ADD","678","add@gmail.com","12341","127873","Bucaramanga","av 127#1-2")));*/
+
 
   @Autowired
   private EntityRepository er;
@@ -51,6 +50,11 @@ public class EntityServiceImpl implements EntityService {
     @Override
     public Entity updateEntity(Entity newEntity) {
         return null;
+    }
+
+    @Override
+    public Entity getByEmailAndPassword(String email, String password) {
+        return er.findByEmailAndPassword(email,password).get();
     }
 
 

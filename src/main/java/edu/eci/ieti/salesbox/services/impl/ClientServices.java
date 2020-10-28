@@ -1,34 +1,33 @@
 package edu.eci.ieti.salesbox.services.impl;
 
+import edu.eci.ieti.salesbox.models.Product;
+import edu.eci.ieti.salesbox.persistence.ClientRepository;
 import edu.eci.ieti.salesbox.services.Services;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.eci.ieti.salesbox.models.Client;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+
+import edu.eci.ieti.salesbox.persistence.ClientRepository;
 
 @Service
 public class ClientServices {
 
-    // ClientsArrayTest
-    private static ArrayList<Client> clientsTest = new ArrayList<> (Arrays.asList(new Client(1,"Sergio","Nuñez","Sergio@hotmail.com","1234"),
-            new Client(2,"David","Diaz","David@hotmail.com","0000"),
-            new Client(3,"Juan","Navarro","Juan@hotmail.com","1111")));
-
+    @Autowired
+    private ClientRepository clientRepository;
     /**
      * Method allowing to consult a client by its id.
      *
      * @param id This is a identifier of the client.
      * @return  Returns the client corresponding to the id.
      */
-    public Client getClienteById(int id){
-        Client answ = null;
-        for (Client cli:clientsTest){
-            if (cli.getId() == id){
-                answ = cli;
-            }
-        }
-        return answ;
+    public Client getClienteById(String id){
+        Optional<Client> OC = clientRepository.findById(id);
+        return OC.get();
+
     }
 
     /**
@@ -39,8 +38,8 @@ public class ClientServices {
      */
     public Client getClienteByMail(String mail){
         Client answ = null;
-        for (Client cli:clientsTest){
-            if (cli.getmail() == mail){
+        for (Client cli:clientRepository.findAll()){
+            if (cli.getMail().equals(mail)){
                 answ = cli;
             }
         }
@@ -53,22 +52,17 @@ public class ClientServices {
      * @return Returns all clients
      */
     public List<Client> getAllCients(){
-        return clientsTest;
+        return clientRepository.findAll();
     }
 
     /**
      * Method used to insert a new client.
      *
      * @param cli This is the object that represents the new client
-     * @return Return true or false if the new client is inserted.
+     * @return Return Client if the new client is inserted.
      */
-    public boolean insertClient(Client cli){
-        boolean flag = false;
-        if (cli != null){
-            clientsTest.add(cli);
-            flag = true;
-        }
-        return flag;
+    public Client insertClient(Client cli){
+        return clientRepository.save(cli);
     }
 
     /**
@@ -80,13 +74,18 @@ public class ClientServices {
      */
     public Client updateClientByMail(Client newClient,String mail){
         Client answ = null;
-        for (Client cli:clientsTest){
-            if (cli.getmail() == mail){
-                cli.setname(newClient.getname());
-                cli.setlastname(newClient.getlastname());
-                cli.setmail(newClient.getmail());
-                cli.setpassword(newClient.getpassword());
+        for (Client cli:clientRepository.findAll()){
+            if (cli.getMail().equals(mail)){
+                cli.setName(newClient.getName());
+                cli.setLastname(newClient.getLastname());
+                cli.setMail(newClient.getMail());
+                cli.setPassword(newClient.getPassword());
+                cli.setCoupons(newClient.getCoupons());
+                cli.setPhon(newClient.getPhon());
+                cli.setAdress(newClient.getAdress());
                 answ = cli;
+                clientRepository.delete(answ);
+                clientRepository.save(answ);
             }
         }
         return answ;
@@ -101,15 +100,16 @@ public class ClientServices {
     public boolean deleteClientByMail(String mail){
         boolean flag = false;
         int position = -1;
-        for (Client cli:clientsTest) {
-            if (cli.getmail() == mail) {
-                position = clientsTest.indexOf(cli);
+        for (Client cli:clientRepository.findAll()) {
+            if (cli.getMail().equals(mail)) {
+                clientRepository.delete(cli);
             }
         }
-        if (position >=0){
-            clientsTest.remove(position);
-            flag = true;
-        }
         return flag;
+    }
+
+    public void deleteClientById(String id){
+        Optional<Client> OC = clientRepository.findById(id);
+        clientRepository.delete(OC.get());
     }
 }

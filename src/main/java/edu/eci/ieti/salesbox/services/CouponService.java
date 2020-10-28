@@ -9,7 +9,7 @@ public interface CouponService {
     public List<Coupon> getAllCoupons();
     public Coupon getCouponById(String id);
     public Coupon createCoupon(Coupon newCoupon);
-    public Coupon updateCoupon(Coupon newCoupon);
+    public Coupon updateCoupon(Coupon newCoupon, String id);
     public void removeCoupon(String id);
 
 }
