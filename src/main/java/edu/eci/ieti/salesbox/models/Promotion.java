@@ -13,7 +13,7 @@ public class Promotion {
     private String id;
     private String brand;
     private String endDate;
-    private ArrayList<Product> products;
+    //private ArrayList<Product> products;
     private int discount;
     private String image;
     private String description;
@@ -45,7 +45,7 @@ public class Promotion {
         this.endDate = endDate;
     }
 
-
+    /*
     public ArrayList<Product> getProducts() {
         return products;
     }
@@ -53,6 +53,7 @@ public class Promotion {
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
+    */
 
     public int getDiscount() {
         return discount;

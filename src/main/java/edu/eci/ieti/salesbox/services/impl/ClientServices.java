@@ -24,7 +24,7 @@ public class ClientServices {
      * @param id This is a identifier of the client.
      * @return  Returns the client corresponding to the id.
      */
-    public Client getClienteById(int id){
+    public Client getClienteById(String id){
         Optional<Client> OC = clientRepository.findById(id);
         return OC.get();
 
@@ -108,7 +108,7 @@ public class ClientServices {
         return flag;
     }
 
-    public void deleteClientById(int id){
+    public void deleteClientById(String id){
         Optional<Client> OC = clientRepository.findById(id);
         clientRepository.delete(OC.get());
     }
