@@ -3,10 +3,12 @@ package edu.eci.ieti.salesbox.controllers;
 import edu.eci.ieti.salesbox.exceptions.ProductException;
 import edu.eci.ieti.salesbox.models.Product;
 import edu.eci.ieti.salesbox.services.impl.ProductServiceImpl;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -38,8 +40,10 @@ public class ProductController {
     }
 
     @PostMapping("/Products")
-    public void createProduct(@RequestBody Product product) throws ProductException{
-        psi.createProduct(product);
+    public void createProduct(@RequestBody Product newProduct) throws ProductException{
+        //psi.createProduct(product);
+        ObjectId  newObjectIdProduct = new ObjectId(new Date());
+        newProduct.setId( newObjectIdProduct.toHexString());
     }
 
     @DeleteMapping("/Products/{id}")
