@@ -40,10 +40,10 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public void createProduct(@RequestBody Product newProduct) throws ProductException{
+    public Product createProduct(@RequestBody Product newProduct) throws ProductException{
         ObjectId  newObjectIdProduct = new ObjectId(new Date());
         newProduct.setId( newObjectIdProduct.toHexString());
-        psi.createProduct(newProduct);
+        return psi.createProduct(newProduct);
     }
 
     @DeleteMapping("/products/{id}")
