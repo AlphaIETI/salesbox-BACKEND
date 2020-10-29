@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void updateProduct(Product product, String id) {
+    public void updateProduct(Product product) {
     }
 
     @Override
