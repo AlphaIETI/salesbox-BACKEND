@@ -11,22 +11,22 @@ public class Client {
     private String id;
     private String name;
     private String lastname;
-    private String mail;
+    private String email;
     private String password;
     private String coupons;
-    private String phon;
-    private String adress;
+    private String phone;
+    private String address;
 
-    public Client(String id, String name, String lastname, String mail, String password,String coupons,String phon, String adress ) {
+    public Client(String id, String name, String lastname, String email, String password,String coupons,String phone, String address ) {
 
         this.id = id;
         this.name = name;
         this.lastname = lastname;
-        this.mail = mail;
+        this.email = email;
         this.password = password;
         this.coupons = coupons;
-        this.phon = phon;
-        this.adress = adress;
+        this.phone = phone;
+        this.address = address;
 
     }
 
@@ -48,9 +48,9 @@ public class Client {
 
     }
 
-    public String getMail() {
+    public String getEmail() {
 
-        return mail;
+        return email;
 
     }
 
@@ -66,15 +66,15 @@ public class Client {
 
     }
 
-    public String getPhon() {
+    public String getPhone() {
 
-        return phon;
+        return phone;
 
     }
 
-    public String getAdress() {
+    public String getAddress() {
 
-        return adress;
+        return address;
 
     }
 
@@ -96,9 +96,9 @@ public class Client {
 
     }
 
-    public void setMail(String mail) {
+    public void setEmail(String email) {
 
-        this.mail = mail;
+        this.email = email;
 
     }
 
@@ -114,15 +114,15 @@ public class Client {
 
     }
 
-    public void setPhon(String phon) {
+    public void setPhone(String phone) {
 
-        this.phon = phon;
+        this.phone = phone;
 
     }
 
-    public void setAdress(String adress) {
+    public void setAddress(String address) {
 
-        this.adress = adress;
+        this.address = address;
 
     }
 }

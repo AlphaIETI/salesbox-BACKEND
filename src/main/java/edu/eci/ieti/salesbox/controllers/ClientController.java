@@ -26,19 +26,19 @@ public class ClientController {
         return clientServices.getClienteById(id);
     }
 
-    @GetMapping("/clients/mail/{mail}")
-    public Client getClientsByMail(@PathVariable("mail") String mail) {
-        return clientServices.getClienteByMail(mail);
+    @GetMapping("/clients/email/{email}")
+    public Client getClientsByEmail(@PathVariable("email") String email) {
+        return clientServices.getClienteByEmail(email);
     }
 
-    @PutMapping("/clients/mail/{mail}")
-    public Client updateClientsByMail(@RequestBody Client newClient, @PathVariable("mail") String mail) {
-        return clientServices.updateClientByMail(newClient,mail);
+    @PutMapping("/clients")
+    public Client updateClientsByEmail(@RequestBody Client newClient) {
+        return clientServices.updateClientByEmail(newClient);
     }
 
-    @DeleteMapping("/clients/mail/{mail}")
-    public boolean deleteClientByMail(@PathVariable("mail") String mail){
-        return clientServices.deleteClientByMail(mail);
+    @DeleteMapping("/clients/email/{email}")
+    public boolean deleteClientByEmail(@PathVariable("email") String email){
+        return clientServices.deleteClientByEmail(email);
     }
     @DeleteMapping("/clients/id/{id}")
     public void deleteClientById(@PathVariable("id") String id){
