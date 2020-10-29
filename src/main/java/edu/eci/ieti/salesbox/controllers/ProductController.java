@@ -41,9 +41,9 @@ public class ProductController {
 
     @PostMapping("/products")
     public void createProduct(@RequestBody Product newProduct) throws ProductException{
-        //psi.createProduct(product);
         ObjectId  newObjectIdProduct = new ObjectId(new Date());
         newProduct.setId( newObjectIdProduct.toHexString());
+        psi.createProduct(newProduct);
     }
 
     @DeleteMapping("/products/{id}")
