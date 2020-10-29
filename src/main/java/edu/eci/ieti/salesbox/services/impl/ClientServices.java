@@ -1,8 +1,6 @@
 package edu.eci.ieti.salesbox.services.impl;
 
-import edu.eci.ieti.salesbox.models.Product;
 import edu.eci.ieti.salesbox.persistence.ClientRepository;
-import edu.eci.ieti.salesbox.services.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.eci.ieti.salesbox.models.Client;
@@ -11,7 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import edu.eci.ieti.salesbox.persistence.ClientRepository;
 
 @Service
 public class ClientServices {
@@ -33,17 +30,12 @@ public class ClientServices {
     /**
      * Method allowing to consult a client by its mail.
      *
-     * @param mail This is a mail of the client.
+     * @param email This is a mail of the client.
      * @return  Returns the client corresponding to the mail.
      */
-    public Client getClienteByMail(String mail){
-        Client answ = null;
-        for (Client cli:clientRepository.findAll()){
-            if (cli.getMail().equals(mail)){
-                answ = cli;
-            }
-        }
-        return answ;
+    public Client getClienteByEmail(String email){
+        Optional<Client> optionalClient = clientRepository.findByEmail(email);
+        return optionalClient.get();
     }
 
     /**
@@ -58,31 +50,30 @@ public class ClientServices {
     /**
      * Method used to insert a new client.
      *
-     * @param cli This is the object that represents the new client
+     * @param newClient This is the object that represents the new client
      * @return Return Client if the new client is inserted.
      */
-    public Client insertClient(Client cli){
-        return clientRepository.save(cli);
+    public Client insertClient(Client newClient){
+        return clientRepository.save(newClient);
     }
 
     /**
      * Method used to update an existing client.
      *
      * @param newClient This is the object that represents the update of the client.
-     * @param mail  This is the mail of the promotion to be updated.
      * @return Return the object that represents the updated client.
      */
-    public Client updateClientByMail(Client newClient,String mail){
+    public Client updateClientByEmail(Client newClient){
         Client answ = null;
         for (Client cli:clientRepository.findAll()){
-            if (cli.getMail().equals(mail)){
+            if (cli.getEmail().equals(newClient.getEmail())){
                 cli.setName(newClient.getName());
                 cli.setLastname(newClient.getLastname());
-                cli.setMail(newClient.getMail());
+                cli.setEmail(newClient.getEmail());
                 cli.setPassword(newClient.getPassword());
                 cli.setCoupons(newClient.getCoupons());
-                cli.setPhon(newClient.getPhon());
-                cli.setAdress(newClient.getAdress());
+                cli.setPhone(newClient.getPhone());
+                cli.setAddress(newClient.getAddress());
                 answ = cli;
                 clientRepository.delete(answ);
                 clientRepository.save(answ);
@@ -94,14 +85,14 @@ public class ClientServices {
     /**
      * Method used to delete an existing client.
      *
-     * @param mail This is the mail of the client to be deleted.
+     * @param email This is the mail of the client to be deleted.
      * @return  Return true or false if the client is removed.
      */
-    public boolean deleteClientByMail(String mail){
+    public boolean deleteClientByEmail(String email){
         boolean flag = false;
         int position = -1;
         for (Client cli:clientRepository.findAll()) {
-            if (cli.getMail().equals(mail)) {
+            if (cli.getEmail().equals(email)) {
                 clientRepository.delete(cli);
             }
         }
