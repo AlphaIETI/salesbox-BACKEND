@@ -16,39 +16,6 @@ public class Client {
     private String coupons;
     private String phone;
     private String address;
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public String getSizeUp() {
-        return sizeUp;
-    }
-
-    public void setSizeUp(String sizeUp) {
-        this.sizeUp = sizeUp;
-    }
-
-    public String getSizeDown() {
-        return sizeDown;
-    }
-
-    public void setSizeDown(String sizeDown) {
-        this.sizeDown = sizeDown;
-    }
-
-    public String getShoeSize() {
-        return shoeSize;
-    }
-
-    public void setShoeSize(String shoeSize) {
-        this.shoeSize = shoeSize;
-    }
-
     private String age;
     private String sizeUp;
     private String sizeDown;
@@ -166,5 +133,37 @@ public class Client {
 
         this.address = address;
 
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getSizeUp() {
+        return sizeUp;
+    }
+
+    public void setSizeUp(String sizeUp) {
+        this.sizeUp = sizeUp;
+    }
+
+    public String getSizeDown() {
+        return sizeDown;
+    }
+
+    public void setSizeDown(String sizeDown) {
+        this.sizeDown = sizeDown;
+    }
+
+    public String getShoeSize() {
+        return shoeSize;
+    }
+
+    public void setShoeSize(String shoeSize) {
+        this.shoeSize = shoeSize;
     }
 }
