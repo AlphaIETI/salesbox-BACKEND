@@ -17,7 +17,44 @@ public class Client {
     private String phone;
     private String address;
 
-    public Client(String id, String name, String lastname, String email, String password,String coupons,String phone, String address ) {
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getSizeUp() {
+        return sizeUp;
+    }
+
+    public void setSizeUp(String sizeUp) {
+        this.sizeUp = sizeUp;
+    }
+
+    public String getSizeDown() {
+        return sizeDown;
+    }
+
+    public void setSizeDown(String sizeDown) {
+        this.sizeDown = sizeDown;
+    }
+
+    public String getShoeSize() {
+        return shoeSize;
+    }
+
+    public void setShoeSize(String shoeSize) {
+        this.shoeSize = shoeSize;
+    }
+
+    private String age;
+    private String sizeUp;
+    private String sizeDown;
+    private String shoeSize;
+
+    public Client(String id, String name, String lastname, String email, String password,String coupons,String phone, String address ,String age,String sizeDown,String sizeUp,String shoeSize) {
 
         this.id = id;
         this.name = name;
@@ -27,6 +64,11 @@ public class Client {
         this.coupons = coupons;
         this.phone = phone;
         this.address = address;
+        this.age=age;
+        this.sizeUp=sizeUp;
+        this.sizeDown=sizeDown;
+        this.shoeSize=shoeSize;
+
 
     }
 
