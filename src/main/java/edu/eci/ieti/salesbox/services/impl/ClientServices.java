@@ -63,10 +63,10 @@ public class ClientServices {
      * @param newClient This is the object that represents the update of the client.
      * @return Return the object that represents the updated client.
      */
-    public Client updateClientByEmail(Client newClient, String email){
+    public Client updateClientByEmail(Client newClient){
         Client answ = null;
         for (Client cli:clientRepository.findAll()){
-            if (cli.getEmail().equals(email)){
+            if (cli.getEmail().equals(newClient.getEmail())){
                 cli.setName(newClient.getName());
                 cli.setLastname(newClient.getLastname());
                 cli.setEmail(newClient.getEmail());
