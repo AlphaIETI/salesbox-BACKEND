@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Client {
 
     @Id
-
     private String id;
     private String name;
     private String lastname;
@@ -22,11 +21,11 @@ public class Client {
     private String sizeUp;
     private String sizeDown;
     private String shoeSize;
-    private ArrayList<String> cart;
-    private ArrayList<String> favorites;
+    private ArrayList<String> cart = new ArrayList<>();
+    private ArrayList<String> favorites = new ArrayList<>();
 
-    public Client(String id, String name, String lastname, String email, String password,String coupons,String phone, String address ,String age,String sizeDown,String sizeUp,String shoeSize) {
 
+    public Client(String id, String name, String lastname, String email, String password, String coupons, String phone, String address, String age, String sizeUp, String sizeDown, String shoeSize, ArrayList<String> cart, ArrayList<String> favorites) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -35,14 +34,12 @@ public class Client {
         this.coupons = coupons;
         this.phone = phone;
         this.address = address;
-        this.age=age;
-        this.sizeUp=sizeUp;
-        this.sizeDown=sizeDown;
-        this.shoeSize=shoeSize;
-        cart = null;
-        favorites = null;
-
-
+        this.age = age;
+        this.sizeUp = sizeUp;
+        this.sizeDown = sizeDown;
+        this.shoeSize = shoeSize;
+        this.cart = cart;
+        this.favorites = favorites;
     }
 
     public String getId() {
