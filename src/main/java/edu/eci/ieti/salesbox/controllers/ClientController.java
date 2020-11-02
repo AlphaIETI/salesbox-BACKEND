@@ -31,9 +31,9 @@ public class ClientController {
         return clientServices.getClienteByEmail(email);
     }
 
-    @PutMapping("/clients")
-    public Client updateClientsByEmail(@RequestBody Client newClient) {
-        return clientServices.updateClientByEmail(newClient);
+    @PutMapping("/clients/{email}")
+    public Client updateClientsByEmail(@RequestBody Client newClient, @PathVariable("email") String email) {
+        return clientServices.updateClientByEmail(newClient, email);
     }
 
     @DeleteMapping("/clients/email/{email}")
