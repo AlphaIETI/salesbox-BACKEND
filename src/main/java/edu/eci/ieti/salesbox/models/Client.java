@@ -3,6 +3,8 @@ package edu.eci.ieti.salesbox.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+
 @Document
 public class Client {
 
@@ -20,6 +22,8 @@ public class Client {
     private String sizeUp;
     private String sizeDown;
     private String shoeSize;
+    private ArrayList<String> cart;
+    private ArrayList<String> favorites;
 
     public Client(String id, String name, String lastname, String email, String password,String coupons,String phone, String address ,String age,String sizeDown,String sizeUp,String shoeSize) {
 
@@ -35,6 +39,8 @@ public class Client {
         this.sizeUp=sizeUp;
         this.sizeDown=sizeDown;
         this.shoeSize=shoeSize;
+        cart = null;
+        favorites = null;
 
 
     }
@@ -165,5 +171,21 @@ public class Client {
 
     public void setShoeSize(String shoeSize) {
         this.shoeSize = shoeSize;
+    }
+
+    public ArrayList<String> getCart() {
+        return cart;
+    }
+
+    public void setCart(ArrayList<String> cart) {
+        this.cart = cart;
+    }
+
+    public ArrayList<String> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(ArrayList<String> favorites) {
+        this.favorites = favorites;
     }
 }
