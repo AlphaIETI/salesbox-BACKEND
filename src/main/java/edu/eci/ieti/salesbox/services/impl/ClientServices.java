@@ -74,6 +74,13 @@ public class ClientServices {
                 cli.setCoupons(newClient.getCoupons());
                 cli.setPhone(newClient.getPhone());
                 cli.setAddress(newClient.getAddress());
+                cli.setAge(newClient.getAge());
+                cli.setSizeUp(newClient.getSizeUp());
+                cli.setSizeDown(newClient.getSizeDown());
+                cli.setShoeSize(newClient.getShoeSize());
+                cli.setCart(newClient.getCart());
+                cli.setFavorites(newClient.getFavorites());
+
                 answ = cli;
                 clientRepository.delete(answ);
                 clientRepository.save(answ);
