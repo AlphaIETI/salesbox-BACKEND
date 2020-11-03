@@ -19,8 +19,9 @@ public class Product {
     private String image;
     private ArrayList<String> size;
     private String category;
+    private int stockAvailable;
 
-    public Product(String id, String brand, String description, String color, int price, int discount, String image, ArrayList<String> size, String category) {
+    public Product(String id, String brand, String description, String color, int price, int discount, String image, ArrayList<String> size, String category, int stockAvailable) {
         this.id = id;
         this.brand = brand;
         this.description = description;
@@ -30,6 +31,7 @@ public class Product {
         this.image = image;
         this.size = size;
         this.category = category;
+        this.stockAvailable = stockAvailable;
     }
 
     public String getId() {
@@ -102,5 +104,13 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public int getStockAvailable() {
+        return stockAvailable;
+    }
+
+    public void setStockAvailable(int stockAvailable) {
+        this.stockAvailable = stockAvailable;
     }
 }
