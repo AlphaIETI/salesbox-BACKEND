@@ -64,7 +64,7 @@ public class ClientServices {
      * @return Return the object that represents the updated client.
      */
     public Client updateClientByEmail(Client newClient){
-        Client answ = null;
+        /*Client answ = null;
         for (Client cli:clientRepository.findAll()){
             if (cli.getEmail().equals(newClient.getEmail())){
                 cli.setName(newClient.getName());
@@ -85,8 +85,8 @@ public class ClientServices {
                 clientRepository.delete(answ);
                 clientRepository.save(answ);
             }
-        }
-        return answ;
+        }*/
+        return clientRepository.save(newClient);
     }
 
     /**
