@@ -20,7 +20,7 @@ public class Product {
     private ArrayList<String> size;
     private String category;
 
-    public Product(String id, String brand, String description, String color, int price, int discount, String image, ArrayList<String> size) {
+    public Product(String id, String brand, String description, String color, int price, int discount, String image, ArrayList<String> size, String category) {
         this.id = id;
         this.brand = brand;
         this.description = description;
@@ -29,6 +29,7 @@ public class Product {
         this.discount = discount;
         this.image = image;
         this.size = size;
+        this.category = category;
     }
 
     public String getId() {
@@ -93,5 +94,13 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
