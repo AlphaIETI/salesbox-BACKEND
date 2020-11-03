@@ -18,6 +18,7 @@ public class Product {
     private int discount;
     private String image;
     private ArrayList<String> size;
+    private String category;
 
     public Product(String id, String brand, String description, String color, int price, int discount, String image, ArrayList<String> size) {
         this.id = id;

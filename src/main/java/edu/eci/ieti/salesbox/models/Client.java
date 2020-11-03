@@ -185,4 +185,24 @@ public class Client {
     public void setFavorites(ArrayList<String> favorites) {
         this.favorites = favorites;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", coupons='" + coupons + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", age='" + age + '\'' +
+                ", sizeUp='" + sizeUp + '\'' +
+                ", sizeDown='" + sizeDown + '\'' +
+                ", shoeSize='" + shoeSize + '\'' +
+                ", cart=" + cart +
+                ", favorites=" + favorites +
+                '}';
+    }
 }
