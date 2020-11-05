@@ -1,6 +1,14 @@
 package edu.eci.ieti.salesbox.models;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document
 public class Coupon{
 
+
+    @Id
     private String id;
     private int percentage;
     private String brand;
