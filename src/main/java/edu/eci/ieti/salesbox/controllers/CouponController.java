@@ -1,5 +1,4 @@
 package edu.eci.ieti.salesbox.controllers;
-
 import edu.eci.ieti.salesbox.models.Coupon;
 import edu.eci.ieti.salesbox.services.impl.CouponServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
