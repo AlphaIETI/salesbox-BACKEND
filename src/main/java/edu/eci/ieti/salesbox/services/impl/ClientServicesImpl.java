@@ -1,5 +1,6 @@
 package edu.eci.ieti.salesbox.services.impl;
 
+import edu.eci.ieti.salesbox.exceptions.ClientException;
 import edu.eci.ieti.salesbox.persistence.ClientRepository;
 import edu.eci.ieti.salesbox.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +25,8 @@ public class ClientServicesImpl implements ClientService {
      * @return  Returns the client corresponding to the id.
      */
     @Override
-    public Client getClienteById(String id){
-
-        Optional<Client> OC = clientRepository.findById(id);
-        return OC.get();
-
+    public Client getClienteById(String id) throws ClientException {
+        return clientRepository.findById(id).orElseThrow(() -> new ClientException("The Client with the ID:" + id + " does not exist."));
     }
 
     /**

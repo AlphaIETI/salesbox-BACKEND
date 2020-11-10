@@ -1,6 +1,7 @@
 package edu.eci.ieti.salesbox.controllers;
 
 
+import edu.eci.ieti.salesbox.exceptions.ClientException;
 import edu.eci.ieti.salesbox.models.Client;
 import edu.eci.ieti.salesbox.services.impl.ClientServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class ClientController {
     }
 
     @GetMapping("/clients/id/{id}")
-    public Client getClientsById(@PathVariable("id") String id) {
+    public Client getClientsById(@PathVariable("id") String id) throws ClientException {
         return clientServicesImpl.getClienteById(id);
     }
 
