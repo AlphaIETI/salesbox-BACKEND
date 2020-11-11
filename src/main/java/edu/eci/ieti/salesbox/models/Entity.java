@@ -15,8 +15,9 @@ public class Entity {
     private String phone;
     private String city;
     private String address;
+    private String image;
 
-    public Entity(String id, String name, String nit,String email, String password,String phone, String city, String address){
+    public Entity(String id, String name, String nit,String email, String password,String phone, String city, String address, String image){
 
         this.id=id;
         this.name=name;
@@ -26,6 +27,7 @@ public class Entity {
         this.phone=phone;
         this.city=city;
         this.address=address;
+        this.image=image;
 
 
     }
@@ -92,5 +94,13 @@ public class Entity {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
