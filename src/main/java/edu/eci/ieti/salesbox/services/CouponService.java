@@ -19,6 +19,13 @@ public interface CouponService {
      */
     public Coupon getCouponById(String id);
 
+     /**
+     * Allows consult a coupon by client id
+     * @param id Identifier of the client 
+     * @return  Returns all the coupons of a client
+     */
+    public List<Coupon> getCouponsByClientId(String clientId);
+
     /**
      * Create a new coupon
      * @param newCoupon represents the new coupon

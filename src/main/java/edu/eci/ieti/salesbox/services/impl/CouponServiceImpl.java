@@ -29,6 +29,12 @@ public class CouponServiceImpl implements CouponService{
     }
 
     @Override
+    public ArrayList<Coupon> getCouponsByClientId(String clientId){
+        Optional <ArrayList<Coupon>> resp = couponRepository.findByClientId(clientId);
+        return resp.get();
+    }
+
+    @Override
     public Coupon createCoupon(Coupon newCoupon) {
        return couponRepository.save(newCoupon);
     }
@@ -42,4 +48,6 @@ public class CouponServiceImpl implements CouponService{
         couponRepository.delete(couponRepository.findById(id).get());
 
     }
+
+    
 }
