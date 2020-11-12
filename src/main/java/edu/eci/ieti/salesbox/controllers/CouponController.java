@@ -24,6 +24,11 @@ public class CouponController {
         return couponService.getCouponById(id);
     }
 
+    @GetMapping("/coupons/id/{clientId}")
+    public List<Coupon> getCouponsByClientId(String clientId){
+        return couponService.getCouponsByClientId(clientId);
+    }
+
     @PostMapping("/coupons")
     public Coupon createCoupon(@RequestBody Coupon newCoupon) {
         return couponService.createCoupon(newCoupon);
