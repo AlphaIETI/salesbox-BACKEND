@@ -53,6 +53,11 @@ public class EntityController {
         return es.createEntity(newEntity);
     }
 
+    @PutMapping("/entities")
+    Entity editEntity(@RequestBody Entity putEntity){
+        return es.createEntity(putEntity);
+    }
+    
     @DeleteMapping("/entitydel/{id}")
     void deleteUser(@PathVariable String id){
         es.removeEntity(id);
