@@ -17,13 +17,13 @@ public class Product {
     private ArrayList<String> colors;
     private int price;
     private int discount;
-    private String image;
+    private ArrayList<String> images;
     private ArrayList<String> size;
     private String category;
     private String gender;
     private int stockAvailable;
 
-    public Product(String id, String name, String brand, String description, ArrayList<String> colors, int price, int discount, String image, ArrayList<String> size, String category, String gender, int stockAvailable) {
+    public Product(String id, String name, String brand, String description, ArrayList<String> colors, int price, int discount, ArrayList<String> images, ArrayList<String> size, String category, String gender, int stockAvailable) {
         this.id = id;
         this.name = name;
         this.brand = brand;
@@ -31,7 +31,7 @@ public class Product {
         this.colors = colors;
         this.price = price;
         this.discount = discount;
-        this.image = image;
+        this.images = images;
         this.size = size;
         this.category = category;
         this.gender = gender;
@@ -102,12 +102,12 @@ public class Product {
         this.discount = discount;
     }
 
-    public String getImage() {
-        return image;
+    public ArrayList<String> getImages() {
+        return images;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImages(ArrayList<String> images) {
+        this.images = images;
     }
 
     public String getCategory() {
@@ -144,7 +144,7 @@ public class Product {
                 ", colors=" + colors +
                 ", price=" + price +
                 ", discount=" + discount +
-                ", image='" + image + '\'' +
+                ", images=" + images +
                 ", size=" + size +
                 ", category='" + category + '\'' +
                 ", gender='" + gender + '\'' +
