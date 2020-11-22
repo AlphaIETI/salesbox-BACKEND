@@ -17,6 +17,7 @@ public class Promotion {
     private int discount;
     private String image;
     private String description;
+    private String type;
 
     //Methods
 
@@ -76,5 +77,27 @@ public class Promotion {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Promotion{" +
+                "id='" + id + '\'' +
+                ", brand='" + brand + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", products=" + products +
+                ", discount=" + discount +
+                ", image='" + image + '\'' +
+                ", description='" + description + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

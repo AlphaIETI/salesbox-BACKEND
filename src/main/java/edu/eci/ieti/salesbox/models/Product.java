@@ -11,9 +11,10 @@ public class Product {
 
     @Id
     private String id;
+    private String name;
     private String brand;
     private String description;
-    private String color;
+    private ArrayList<String> colors;
     private int price;
     private int discount;
     private String image;
@@ -22,11 +23,12 @@ public class Product {
     private String gender;
     private int stockAvailable;
 
-    public Product(String id, String brand, String description, String color, int price, int discount, String image, ArrayList<String> size, String category, String gender, int stockAvailable) {
+    public Product(String id, String name, String brand, String description, ArrayList<String> colors, int price, int discount, String image, ArrayList<String> size, String category, String gender, int stockAvailable) {
         this.id = id;
+        this.name = name;
         this.brand = brand;
         this.description = description;
-        this.color = color;
+        this.colors = colors;
         this.price = price;
         this.discount = discount;
         this.image = image;
@@ -42,6 +44,14 @@ public class Product {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getBrand() {
@@ -60,12 +70,12 @@ public class Product {
         this.description = description;
     }
 
-    public String getColor() {
-        return color;
+    public ArrayList<String> getColors() {
+        return colors;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColors(ArrayList<String> colors) {
+        this.colors = colors;
     }
 
     public int getPrice() {
@@ -128,9 +138,10 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", brand='" + brand + '\'' +
                 ", description='" + description + '\'' +
-                ", color='" + color + '\'' +
+                ", colors=" + colors +
                 ", price=" + price +
                 ", discount=" + discount +
                 ", image='" + image + '\'' +
