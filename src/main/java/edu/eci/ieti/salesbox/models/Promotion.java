@@ -18,6 +18,7 @@ public class Promotion {
     private String image;
     private String description;
     private String type;
+    private String idProduct;
 
     //Methods
 
@@ -87,6 +88,14 @@ public class Promotion {
         this.type = type;
     }
 
+    public String getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(String idProduct) {
+        this.idProduct = idProduct;
+    }
+
     @Override
     public String toString() {
         return "Promotion{" +
@@ -98,6 +107,7 @@ public class Promotion {
                 ", image='" + image + '\'' +
                 ", description='" + description + '\'' +
                 ", type='" + type + '\'' +
+                ", idProduct='" + idProduct + '\'' +
                 '}';
     }
 }
