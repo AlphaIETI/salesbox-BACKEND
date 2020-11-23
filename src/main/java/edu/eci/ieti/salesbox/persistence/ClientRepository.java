@@ -1,7 +1,6 @@
 package edu.eci.ieti.salesbox.persistence;
 
 import edu.eci.ieti.salesbox.models.Client;
-import edu.eci.ieti.salesbox.models.Product;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

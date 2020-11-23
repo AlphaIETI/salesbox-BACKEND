@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface ClientService {
 
-    public Client getClienteById(String id) throws ClientException;
+    public Client getClientById(String id) throws ClientException;
 
-    public Client getClienteByEmail(String email) ;
+    public Client getClientByEmail(String email) ;
 
-    public List<Client> getAllCients() ;
+    public List<Client> getAllClients() ;
 
     public Client insertClient(Client newClient) ;
 
