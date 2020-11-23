@@ -19,17 +19,17 @@ public class ClientController {
 
     @GetMapping("/clients")
     public List<Client> getAllClients() {
-        return clientServicesImpl.getAllCients();
+        return clientServicesImpl.getAllClients();
     }
 
     @GetMapping("/clients/id/{id}")
     public Client getClientsById(@PathVariable("id") String id) throws ClientException {
-        return clientServicesImpl.getClienteById(id);
+        return clientServicesImpl.getClientById(id);
     }
 
     @GetMapping("/clients/email/{email}")
     public Client getClientsByEmail(@PathVariable("email") String email) {
-        return clientServicesImpl.getClienteByEmail(email);
+        return clientServicesImpl.getClientByEmail(email);
     }
 
     @PutMapping("/clients")

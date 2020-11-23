@@ -6,8 +6,7 @@ import edu.eci.ieti.salesbox.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.eci.ieti.salesbox.models.Client;
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +24,7 @@ public class ClientServicesImpl implements ClientService {
      * @return  Returns the client corresponding to the id.
      */
     @Override
-    public Client getClienteById(String id) throws ClientException {
+    public Client getClientById(String id) throws ClientException {
         return clientRepository.findById(id).orElseThrow(() -> new ClientException("The Client with the ID:" + id + " does not exist."));
     }
 
@@ -36,7 +35,7 @@ public class ClientServicesImpl implements ClientService {
      * @return  Returns the client corresponding to the mail.
      */
     @Override
-    public Client getClienteByEmail(String email){
+    public Client getClientByEmail(String email){
 
         Optional<Client> optionalClient = clientRepository.findByEmail(email);
         return optionalClient.get();
@@ -49,7 +48,7 @@ public class ClientServicesImpl implements ClientService {
      * @return Returns all clients
      */
     @Override
-    public List<Client> getAllCients(){
+    public List<Client> getAllClients(){
 
         return clientRepository.findAll();
 
@@ -89,7 +88,7 @@ public class ClientServicesImpl implements ClientService {
     @Override
     public void deleteClientByEmail(String email){
 
-        Client client = getClienteByEmail(email);
+        Client client = getClientByEmail(email);
         clientRepository.delete(client);
 
     }
