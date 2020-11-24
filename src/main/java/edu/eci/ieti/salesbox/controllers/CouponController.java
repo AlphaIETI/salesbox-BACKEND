@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/api")
@@ -31,6 +32,8 @@ public class CouponController {
 
     @PostMapping("/coupons")
     public Coupon createCoupon(@RequestBody Coupon newCoupon) {
+        UUID uuid=UUID.randomUUID();
+        newCoupon.setId(uuid.toString());
         return couponService.createCoupon(newCoupon);
     }
 
