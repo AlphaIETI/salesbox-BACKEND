@@ -3,6 +3,8 @@ package edu.eci.ieti.salesbox.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+
 @Document
 public class Entity {
 
@@ -17,6 +19,7 @@ public class Entity {
     private String address;
     private String image;
     private int publicity;
+    private ArrayList<String> orders;
 
     public Entity(String id, String name, String nit,String email, String password,String phone, String city, String address, String image, int publicity){
 
@@ -30,6 +33,7 @@ public class Entity {
         this.address=address;
         this.image=image;
         this.publicity=publicity;
+        this.orders = new ArrayList<>();
 
 
     }
@@ -109,4 +113,12 @@ public class Entity {
     public int getPublicity() { return publicity; }
 
     public void setPublicity(int publicity) { this.publicity = publicity; }
+
+    public ArrayList<String> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(ArrayList<String> orders) {
+        this.orders = orders;
+    }
 }

@@ -14,7 +14,7 @@ public class Client {
     private String lastname;
     private String email;
     private String password;
-    private String coupons;
+    private ArrayList<String> coupons;
     private String phone;
     private String address;
     private String age;
@@ -22,19 +22,20 @@ public class Client {
     private String sizeDown;
     private String shoeSize;
     private String gender;
-    private ArrayList<String> cart = new ArrayList<>();
-    private ArrayList<String> favorites = new ArrayList<>();
+    private ArrayList<String> cart ;
+    private ArrayList<String> favorites ;
+    private ArrayList<String> orders;
 
 
 
 
-    public Client(String id, String name, String lastname, String email, String password, String coupons, String phone, String address, String age, String sizeUp, String sizeDown, String shoeSize, String gender, ArrayList<String> cart, ArrayList<String> favorites) {
+    public Client(String id, String name, String lastname, String email, String password, String phone, String address, String age, String sizeUp, String sizeDown, String shoeSize, String gender) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
-        this.coupons = coupons;
+        this.coupons = new ArrayList<>();
         this.phone = phone;
         this.address = address;
         this.age = age;
@@ -42,8 +43,9 @@ public class Client {
         this.sizeDown = sizeDown;
         this.shoeSize = shoeSize;
         this.gender= gender;
-        this.cart = cart;
-        this.favorites = favorites;
+        this.cart = new ArrayList<>();
+        this.favorites = new ArrayList<>();
+        this.orders = new ArrayList<>() ;
     }
 
     public String getId() {
@@ -76,7 +78,7 @@ public class Client {
 
     }
 
-    public String getCoupons() {
+    public ArrayList<String> getCoupons() {
 
         return coupons;
 
@@ -124,7 +126,7 @@ public class Client {
 
     }
 
-    public void setCoupons(String coupons) {
+    public void setCoupons(ArrayList<String> coupons) {
 
         this.coupons = coupons;
 
@@ -187,10 +189,30 @@ public class Client {
     }
 
     public void setFavorites(ArrayList<String> favorites) {
+
         this.favorites = favorites;
+
     }
-    public String getGender() { return gender; }
-    public void setGender(String gender) { this.gender = gender; }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public ArrayList<String> getOrders() {
+
+        return orders;
+
+    }
+
+    public void setOrders(ArrayList<String> orders) {
+
+        this.orders = orders;
+
+    }
 
     @Override
     public String toString() {
