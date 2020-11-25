@@ -20,7 +20,7 @@ public class CouponController {
         return couponService.getAllCoupons();
     }
 
-    @GetMapping("/coupons/id/{id}")
+    @GetMapping("/coupons/{id}")
     public Coupon getCouponById(@PathVariable("id") String id) {
         return couponService.getCouponById(id);
     }
