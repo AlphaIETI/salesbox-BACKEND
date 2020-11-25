@@ -16,15 +16,11 @@ public class Coupon{
     private String image;
     private String clientId;
 
-    public Coupon(String id, int percentage, String brand, String endDate, String image, String clientId){
-        this.id=id;
-        this.percentage=percentage;
+
+    public Coupon (String brand, String clientId){
         this.brand=brand;
-        this.endDate=endDate;
-        this.image=image;
         this.clientId=clientId;
     }
-
 
     public String getId() {
         return id;
