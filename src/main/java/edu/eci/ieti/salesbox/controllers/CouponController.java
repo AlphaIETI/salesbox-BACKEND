@@ -1,12 +1,16 @@
 package edu.eci.ieti.salesbox.controllers;
 import edu.eci.ieti.salesbox.models.Coupon;
+import edu.eci.ieti.salesbox.models.Client;
 import edu.eci.ieti.salesbox.services.impl.CouponServiceImpl;
+import edu.eci.ieti.salesbox.services.impl.ClientServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import edu.eci.ieti.salesbox.exceptions.ClientException;
 import java.time.*;
 import java.util.List;
 import java.util.UUID;
 import java.util.Hashtable;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping(value = "/api")
@@ -15,6 +19,9 @@ public class CouponController {
 
     @Autowired
     CouponServiceImpl couponService;
+
+    @Autowired
+    ClientServicesImpl clientService;
 
     @GetMapping("/coupons")
     public List<Coupon> getAllCoupons() {
@@ -32,7 +39,7 @@ public class CouponController {
     }
 
     @PostMapping("/coupons")
-    public Coupon createCoupon(@RequestBody Coupon newCoupon) {
+    public Coupon createCoupon(@RequestBody Coupon newCoupon) throws ClientException{
         UUID uuid=UUID.randomUUID();
         LocalDate ld = LocalDate.now(); 
         LocalDate end = ld.plusDays(10); 
@@ -60,6 +67,11 @@ public class CouponController {
         newCoupon.setEndDate(end.toString());
         newCoupon.setPercentage(percentage);
         newCoupon.setImage(i);
+        Client c = clientService.getClientById(newCoupon.getClientId());
+        ArrayList couponsNew = c.getCoupons();
+        couponsNew.add(newCoupon.getId());
+        c.setCoupons(couponsNew);
+        clientService.insertClient(c);
         return couponService.createCoupon(newCoupon);
     }
 
