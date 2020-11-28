@@ -18,7 +18,7 @@ public class SalesboxApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/").allowedOrigins("https://salesbox-alpha.herokuapp.com/");
+				registry.addMapping("/").allowedOrigins("http://localhost:3000/");
 			}
 		};
 	}
