@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000"})
+@CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000","http://localhost"})
 public class ClientController {
 
     @Autowired
