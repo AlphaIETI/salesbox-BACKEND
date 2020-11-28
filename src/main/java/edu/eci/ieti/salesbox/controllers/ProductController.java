@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000"})
+@CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000","http://localhost"})
 public class ProductController {
 
 

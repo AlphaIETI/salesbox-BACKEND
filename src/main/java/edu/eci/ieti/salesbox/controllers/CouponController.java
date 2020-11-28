@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping(value = "/api")
-@CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000"})
+@CrossOrigin(origins = {"https://salesbox-alpha.herokuapp.com","http://localhost:3000","http://localhost"})
 public class CouponController {
 
     @Autowired
