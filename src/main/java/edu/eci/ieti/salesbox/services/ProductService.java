@@ -35,6 +35,6 @@ public interface ProductService {
     /**
      * Metodo para modificar un producto
      */
-    public void updateProduct(Product product) throws ProductException;
+    public Product updateProduct(Product product) throws ProductException;
 
 }
