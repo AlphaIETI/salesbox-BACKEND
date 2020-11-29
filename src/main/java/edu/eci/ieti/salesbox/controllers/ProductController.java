@@ -34,9 +34,9 @@ public class ProductController {
         return psi.getProductsByBrand(brand);
     }
 
-    @PutMapping("/products/")
-    public void changeProductById(@RequestBody Product newProduct) throws ProductException{
-        psi.updateProduct(newProduct);
+    @PutMapping("/products")
+    public Product changeProductById(@RequestBody Product newProduct) throws ProductException{
+        return psi.updateProduct(newProduct);
     }
 
     @PostMapping("/products")
