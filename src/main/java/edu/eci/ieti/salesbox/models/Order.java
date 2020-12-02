@@ -3,21 +3,23 @@ package edu.eci.ieti.salesbox.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+
 @Document
 public class Order {
 
     @Id
     private String id;
-    private String idProduct;
-    private String idEntity;
+    private ArrayList<String> idProducts;
+    private String nameEntity;
     private String idClient;
     private String quantity;
     
-    public Order(String id, String idProduct, String idEntity, String idClient, String quantity){
+    public Order(String id, String nameEntity, String idClient, String quantity){
         
         this.id = id;
-        this.idProduct = idProduct;
-        this.idEntity = idEntity;
+        this.idProducts = new ArrayList<>();
+        this.nameEntity = nameEntity;
         this.idClient = idClient;
         this.quantity = quantity;
         
@@ -35,27 +37,27 @@ public class Order {
         
     }
 
-    public String getIdProduct() {
+    public ArrayList<String> getIdProducts() {
         
-        return idProduct;
-        
-    }
-
-    public void setIdProduct(String idProduct) {
-        
-        this.idProduct = idProduct;
+        return idProducts;
         
     }
 
-    public String getIdEntity() {
+    public void setIdProduct(ArrayList<String> idProducts) {
         
-        return idEntity;
+        this.idProducts = idProducts;
         
     }
 
-    public void setIdEntity(String idEntity) {
+    public String getNameEntity() {
         
-        this.idEntity = idEntity;
+        return nameEntity;
+        
+    }
+
+    public void setNameEntity(String nameEntity) {
+        
+        this.nameEntity = nameEntity;
         
     }
 
