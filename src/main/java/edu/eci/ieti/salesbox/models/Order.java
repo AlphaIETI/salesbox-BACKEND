@@ -15,10 +15,10 @@ public class Order {
     private String idClient;
     private String quantity;
     
-    public Order(String id, String nameEntity, String idClient, String quantity){
+    public Order(String id, String nameEntity, ArrayList<String> idProducts, String idClient, String quantity){
         
         this.id = id;
-        this.idProducts = new ArrayList<>();
+        this.idProducts = idProducts;
         this.nameEntity = nameEntity;
         this.idClient = idClient;
         this.quantity = quantity;
