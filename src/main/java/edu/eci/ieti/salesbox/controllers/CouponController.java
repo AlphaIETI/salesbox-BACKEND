@@ -43,7 +43,7 @@ public class CouponController {
         UUID uuid=UUID.randomUUID();
         LocalDate ld = LocalDate.now(); 
         LocalDate end = ld.plusDays(10); 
-        int percentage = (int)(Math.random()*(25-10+1)+10);
+        int percentage = (int)(Math.random()*(10-10+1)+5);
         Hashtable<Integer,String> percentageimage = new Hashtable<Integer,String>();
         percentageimage.put(5,"https://res.cloudinary.com/ds6sg7twl/image/upload/v1607043988/10_16_mlwlob.jpg");
         percentageimage.put(6,"https://res.cloudinary.com/ds6sg7twl/image/upload/v1607043987/10_17_yxzdzz.jpg");
